@@ -1,0 +1,9 @@
+# modules
+node_modules/
+bun.lockb
+
+# user conf
+tokens.txt
+
+# mac conf
+**/.DS_Store
