@@ -28,13 +28,15 @@ console.log(chalk.magenta('    [Login] Starting clients...'));
 
 for (let token of tokens) {
     let client = new Discord.Client({ checkUpdate: false });
-    client.login(token);
+
     await new Promise((r) => {
         client.on('ready', () => {
-            clients.set(token, client);
+            global.clients.set(token, client);
             console.log(chalk.magenta('    [Login] Logged in account: ' + client.user.username));
             r();
         });
+
+        client.login(token).catch(() => r());
     });
 };
 

@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 
-export default () => {
-    rl.question(chalk.green(`\n    Enter an option # > `), async (input) => {
+const resetPrompt = () => {
+    global.rl.question(chalk.green(`\n    Enter an option # > `), async (input) => {
         if (isNaN(input)) {
             console.log(chalk.magenta('    > Invalid input.'));
             resetPrompt();
@@ -33,3 +33,5 @@ export default () => {
         file.default();
     });
 };
+
+export default resetPrompt;

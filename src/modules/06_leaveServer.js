@@ -8,7 +8,7 @@ export default async () => {
 
     let cachedName;
 
-    await Promise.all(clients.all().map(async (client) => {
+    await Promise.all(global.clients.all().map(async (client) => {
         let g = await client.guilds.fetch(guildID);
         if (!cachedName) cachedName = g.name;
         await g.leave();

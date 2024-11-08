@@ -10,8 +10,8 @@ export default async () => {
     let statusIndicator = await handler.question('status indicator? ');
     if (!statusIndicator.trim()) return handler.endError('missing status indicator!');
 
-    await Promise.all(clients.all().map(async (client) => {
-        let status = new Discord.CustomStatus(client).setState(statusText)
+    await Promise.all(global.clients.all().map(async (client) => {
+        let status = new Discord.CustomStatus(client).setState(statusText);
         await client.user.setPresence({ activities: [status] });
         await client.user.setStatus(statusIndicator);
     }));

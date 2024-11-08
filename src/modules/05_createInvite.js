@@ -3,7 +3,8 @@ import Handler from '../handler.js';
 const handler = new Handler('create invite');
 
 export default async () => {
-    let selectedClient = clients.all()[clients.all().length * Math.random() | 0];
+    let allClients = global.clients.all();
+    let selectedClient = allClients[allClients.length * Math.random() | 0];
 
     let guildID = await handler.question(`guild ID (account: ${selectedClient.user.username})? `);
     if (!guildID.trim()) return handler.endError('missing guild ID!');

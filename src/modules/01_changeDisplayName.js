@@ -6,7 +6,7 @@ export default async () => {
     let name = await handler.question('display name? ');
     if (!name.trim()) return handler.endError('missing name!');
 
-    await Promise.all(clients.all().map(async (client) => {
+    await Promise.all(global.clients.all().map(async (client) => {
         await client.user.setGlobalName(name);
     }));
 

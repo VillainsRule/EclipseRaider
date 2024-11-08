@@ -12,7 +12,7 @@ export default async () => {
     let intervals = [];
     let stop = false;
 
-    clients.all().forEach(async (client) => {
+    global.clients.all().forEach(async (client) => {
         let guild = await client.guilds.cache.get(guildID);
         if (!guild) return handler.endError('guild not found.');
         let channels = await guild.channels.fetch();
